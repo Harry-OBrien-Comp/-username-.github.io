@@ -1,29 +1,275 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Music Compositions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harry O'Brien - Composer Portfolio</title>
   <style>
-    body { font-family: sans-serif; text-align: center; margin: 3em; }
-    h1 { font-size: 2.5em; }
-    audio { margin: 1em; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #fafaf8;
+      color: #1a1a1a;
+    }
+
+    /* Fixed Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #0a0a0a;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      color: #b8b8b8;
+    }
+
+    .title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      font-weight: 200;
+      letter-spacing: 2px;
+      color: #c0c0c0;
+    }
+
+    /* Main Content */
+    main {
+      margin-top: 100px;
+      padding: 3rem 6rem;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      width: 85%;
+      height: 1px;
+      background-color: #0a0a0a;
+      margin: 3rem auto;
+    }
+
+    /* Bio Section */
+    .bio-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #2a2a2a;
+      font-weight: 300;
+      max-width: 900px;
+    }
+
+    /* Audio Player Styling */
+    .audio-container {
+      background-color: #0a0a0a;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: none;
+    }
+
+    .audio-title {
+      color: #c0c0c0;
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    audio {
+      width: 100%;
+      height: 40px;
+      outline: none;
+    }
+
+    audio::-webkit-media-controls-panel {
+      background-color: #1a1a1a;
+    }
+
+    /* PDF Container */
+    .pdf-container {
+      background-color: #0a0a0a;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pdf-title {
+      color: #c0c0c0;
+      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+
+    .pdf-link {
+      color: #b8b8b8;
+      text-decoration: none;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid #c0c0c0;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .pdf-link:hover {
+      background-color: #c0c0c0;
+      color: #0a0a0a;
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      background-color: #e8e8e6;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 0.9rem;
+      border: 1px solid #d0d0ce;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .title {
+        position: static;
+        transform: none;
+        font-size: 1.3rem;
+      }
+
+      .name {
+        font-size: 1.2rem;
+      }
+
+      main {
+        padding: 2rem 1.5rem;
+      }
+
+      .divider {
+        width: 90%;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>🎵 My Music Compositions</h1>
-  <p>Welcome! Here are some of my original works.</p>
+  <header>
+    <div class="name">Harry O'Brien</div>
+    <div class="title">Composer Portfolio</div>
+  </header>
 
-  <h2>Track 1 – “Echoes of Time”</h2>
-  <audio controls>
-    <source src="echoes-of-time.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <main>
+    <!-- Bio Section -->
+    <section id="bio">
+      <h2 class="section-title">Bio</h2>
+      <p class="bio-text">
+        Currently undertaking a PhD in Electroacoustic Composition at the University of Manchester, Harry's research focuses on data sonification of dynamic optimisation algorithms and developing machine learning methods for generative compositional methods. Harry is also an alumni of the University of Leeds with a BSc in Mathematics and Music, and MMus in Critical and Experimental Composition.
+      </p>
+    </section>
 
-  <h2>Track 2 – “Dreamlight”</h2>
-  <audio controls>
-    <source src="dreamlight.mp3" type="audio/mpeg">
-  </audio>
+    <div class="divider"></div>
 
-  <p>© 2025 [Your Name]. All rights reserved.</p>
+    <!-- Electronic Works Section -->
+    <section id="electronic-works">
+      <h2 class="section-title">Electronic Works</h2>
+      
+      <div class="audio-container">
+        <div class="audio-title">Echoes of Time</div>
+        <audio controls>
+          <source src="echoes-of-time.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="audio-container">
+        <div class="audio-title">Dreamlight</div>
+        <audio controls>
+          <source src="dreamlight.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Acoustic Works Section -->
+    <section id="acoustic-works">
+      <h2 class="section-title">Acoustic Works</h2>
+      
+      <div class="pdf-container">
+        <div class="pdf-title">Score Title 1</div>
+        <a href="score1.pdf" class="pdf-link" target="_blank">View Score</a>
+      </div>
+
+      <div class="pdf-container">
+        <div class="pdf-title">Score Title 2</div>
+        <a href="score2.pdf" class="pdf-link" target="_blank">View Score</a>
+      </div>
+
+      <div class="pdf-container">
+        <div class="pdf-title">Score Title 3</div>
+        <a href="score3.pdf" class="pdf-link" target="_blank">View Score</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">Performance Image 1</div>
+        <div class="gallery-item">Performance Image 2</div>
+        <div class="gallery-item">Performance Image 3</div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
